@@ -29,6 +29,7 @@ export function Hero() {
   const imageRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const rotatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,6 +41,25 @@ export function Hero() {
             ease: "none",
             repeat: -1
         });
+      }
+
+      // Word Rotator Animation
+      if (rotatorRef.current) {
+        const tl = gsap.timeline({ repeat: -1 });
+        const totalWords = 4; // Elevate, Scale, Grow, Define
+        
+        for (let i = 0; i < totalWords; i++) {
+            // Wait
+            tl.to({}, { duration: 2.0 });
+            // Slide up
+            tl.to(rotatorRef.current, {
+                yPercent: -(100 / (totalWords + 1)) * (i + 1), // +1 because we added a clone
+                duration: 0.6,
+                ease: "power3.inOut"
+            });
+        }
+        // Reset instantly to 0 (which is the clone of the start)
+        tl.set(rotatorRef.current, { yPercent: 0 });
       }
 
       const tl = gsap.timeline({
@@ -107,8 +127,17 @@ export function Hero() {
         <div ref={textRef} className="relative z-10 h-full flex flex-col items-center pt-24 md:pt-32 text-center text-white px-4">
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium tracking-tighter leading-[0.9] mix-blend-overlay opacity-90">
-                We Craft <br />
-                <span className="font-sans italic font-light">Digital</span> Reality
+                We Build Websites That<br />
+                <span className="inline-grid h-[0.9em] overflow-hidden align-bottom">
+                    <div ref={rotatorRef} className="flex flex-col">
+                        <span className="font-sans italic font-light block">Elevate</span>
+                        <span className="font-sans italic font-light block">Scale</span>
+                        <span className="font-sans italic font-light block">Grow</span>
+                        <span className="font-sans italic font-light block">Define</span>
+                        <span className="font-sans italic font-light block">Elevate</span>
+                    </div>
+                </span> <br className="md:hidden" />
+                Your Brand.
             </h1>
             
             {/* Trusted By Section */}
