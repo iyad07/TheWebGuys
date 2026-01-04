@@ -64,25 +64,24 @@ export function Hero() {
 
       const tl = gsap.timeline({
         scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: document.body,
             start: "top top",
-            end: "+=120%", 
-            pin: true,
+            end: "150vh top", 
             scrub: true, 
         }
       });
 
       // 1. Container Transform (Round corners + Scale Down)
       tl.to(wrapperRef.current, {
-        borderRadius: "48px",
-        scale: 0.95,
+        borderRadius: "24px",
+        scale: 0.92,
         y: 20,
         ease: "power1.inOut",
       }, 0);
 
       // 2. Parallax Zoom Effect (Image scales up inside the shrinking container)
       tl.fromTo(imageRef.current, 
-        { scale: 2.5 }, // Start slightly zoomed in
+        { scale: 1.5 }, // Start slightly zoomed in
         {
             scale: 1, // Zoom out to normal
             ease: "none",
@@ -104,7 +103,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-background">
+    <section ref={containerRef} className="fixed top-0 left-0 h-screen w-full overflow-hidden bg-background z-0">
       {/* Wrapper for the rounded corner effect */}
       <div ref={wrapperRef} className="relative w-full h-full overflow-hidden">
         {/* Background Image Container */}

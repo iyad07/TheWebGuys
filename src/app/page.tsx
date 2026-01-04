@@ -11,11 +11,13 @@ export default function Home() {
   return (
     <main className="bg-background min-h-screen">
       <Hero />
+      <div className="h-[150vh]" /> {/* Spacer for Hero Sticky Scroll */}
       
-      {/* Services Section - Stacking Cards */}
-      <ServicesStack />
+      <div className="relative z-10 bg-background">
+        {/* Services Section - Stacking Cards */}
+        <ServicesStack />
 
-      {/* Selected Work - Bento Layout */}
+        {/* Selected Work - Bento Layout */}
       <section className="py-24 bg-white">
         <div className="px-6 md:px-12 max-w-7xl mx-auto">
              <Reveal>
@@ -110,6 +112,7 @@ export default function Home() {
             </div>
         </div>
       </footer>
+      </div>
     </main>
   );
 }
