@@ -51,7 +51,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 transition-colors duration-300 mt-8 lg:mt-0">
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 transition-colors duration-300 pt-8 lg:mt-0">
       <style jsx global>{`
         .nav-scrolled {
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
