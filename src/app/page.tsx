@@ -2,7 +2,10 @@ import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
 import { ServicesStack } from "@/components/ServicesStack";
 import { SectionHeading } from "@/components/SectionHeading";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import AzumahHomes from "@/assets/projects/azumahhomes.png";
+import XLabs from "@/assets/projects/xlabsgh.png";
 
 export default function Home() {
   return (
@@ -23,30 +26,52 @@ export default function Home() {
                 {/* Project 1 - Large / Featured */}
                 <Reveal className="md:col-span-2 relative group overflow-hidden rounded-2xl bg-gray-100 hover-trigger">
                     <Image 
-                        src="https://images.unsplash.com/photo-1481480746201-193630c72752?q=80&w=2070&auto=format&fit=crop"
-                        alt="Cofield"
+                        src={AzumahHomes}
+                        alt="Azumah Homes"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        placeholder="blur"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
-                    <div className="absolute bottom-0 left-0 p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <span className="text-xs font-bold uppercase tracking-widest mb-2 block opacity-80">Branding / Web Design</span>
-                        <h3 className="text-4xl font-serif">Cofield</h3>
+                    <div className="absolute bottom-0 left-0 w-full p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex justify-between items-end">
+                        <div>
+                            <span className="text-xs font-bold uppercase tracking-widest mb-2 block opacity-80">Real Estate / Web Design</span>
+                            <h3 className="text-4xl font-serif">Azumah Homes</h3>
+                        </div>
+                        <a 
+                            href="https://www.azumahhomes.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest border border-white/30 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all"
+                        >
+                            View Website <ArrowUpRight className="w-3 h-3" />
+                        </a>
                     </div>
                 </Reveal>
 
                 {/* Project 2 - Tall / Portrait */}
                 <Reveal className="md:col-span-1 relative group overflow-hidden rounded-2xl bg-gray-100 hover-trigger">
                      <Image 
-                        src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=2080&auto=format&fit=crop"
-                        alt="Serif"
+                        src={XLabs}
+                        alt="XLabs GH"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        placeholder="blur"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
-                    <div className="absolute bottom-0 left-0 p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <span className="text-xs font-bold uppercase tracking-widest mb-2 block opacity-80">Product Design</span>
-                        <h3 className="text-4xl font-serif">Serif</h3>
+                    <div className="absolute bottom-0 left-0 w-full p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex justify-between items-end">
+                        <div>
+                            <span className="text-xs font-bold uppercase tracking-widest mb-2 block opacity-80">Tech / Branding</span>
+                            <h3 className="text-4xl font-serif">XLabs GH</h3>
+                        </div>
+                         <a 
+                            href="https://www.xlabsgh.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest border border-white/30 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all"
+                        >
+                            View <ArrowUpRight className="w-3 h-3" />
+                        </a>
                     </div>
                 </Reveal>
 
